@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-import '../../../styles/colors.dart';
+import '../styles/colors.dart';
 import '../loader/loader.dart';
 
 class CrossfadeWrapperContainer extends StatelessWidget {
@@ -21,14 +21,15 @@ class CrossfadeWrapperContainer extends StatelessWidget {
   final Alignment alignment;
   final bool useLoader;
   final double? loaderHeight;
-  Widget get loader => loaderHeight == null
-      ? Loader.circle()
-      : Container(
-          height: loaderHeight,
-          width: double.maxFinite,
-          color: SGColors.white,
-          child: Center(child: Loader.circle()),
-        );
+  Widget get loader =>
+      loaderHeight == null
+          ? Loader.circle()
+          : Container(
+            height: loaderHeight,
+            width: double.maxFinite,
+            color: SGColors.white,
+            child: Center(child: Loader.circle()),
+          );
   Widget get empty => const SizedBox.shrink();
 
   @override

@@ -1,16 +1,14 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_svg/flutter_svg.dart';
 import 'package:lottie/lottie.dart';
-import '../../../styles/colors.dart';
+import '../styles/colors.dart';
 import '../container/circle_container.dart';
 
 class BottomSheetHeader extends StatelessWidget {
   const BottomSheetHeader({super.key, required this.child});
 
   factory BottomSheetHeader.delete() {
-    return BottomSheetHeader.withIcon(
-      icon: Icons.delete_outline_rounded,
-    );
+    return BottomSheetHeader.withIcon(icon: Icons.delete_outline_rounded);
   }
 
   factory BottomSheetHeader.withIcon({
@@ -21,11 +19,7 @@ class BottomSheetHeader extends StatelessWidget {
       child: CircleContainer(
         size: 64,
         color: SGColors.secondaryRed.withOpacity(0.1),
-        child: Icon(
-          icon,
-          size: iconSize,
-          color: SGColors.secondaryRed,
-        ),
+        child: Icon(icon, size: iconSize, color: SGColors.secondaryRed),
       ),
     );
   }
@@ -34,11 +28,7 @@ class BottomSheetHeader extends StatelessWidget {
     final double size = 32,
   }) {
     return BottomSheetHeader(
-      child: SvgPicture.asset(
-        svgAsset,
-        width: size,
-        height: size,
-      ),
+      child: SvgPicture.asset(svgAsset, width: size, height: size),
     );
   }
 
@@ -64,8 +54,6 @@ class BottomSheetHeader extends StatelessWidget {
   final Widget child;
   @override
   Widget build(final BuildContext context) {
-    return Center(
-      child: child,
-    );
+    return Center(child: child);
   }
 }

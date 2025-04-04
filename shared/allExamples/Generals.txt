@@ -1,0 +1,5 @@
+flutter pub add flutter_svg
+flutter pub add lottie
+flutter pub add cached_network_image
+flutter pub add flutter_screenutil
+flutter pub add cupertino_icons

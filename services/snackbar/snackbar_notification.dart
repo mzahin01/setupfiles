@@ -1,8 +1,8 @@
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 
-import '../../styles/colors.dart';
-import '../../styles/spacing.dart';
+import '../../shared/styles/colors.dart';
+import '../../shared/styles/spacing.dart';
 
 class SnackbarNotification extends GetxService {
   static SnackbarNotification get to => Get.find();

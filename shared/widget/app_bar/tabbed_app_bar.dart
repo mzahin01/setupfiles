@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
 
-import '../../../styles/colors.dart';
-import '../../../styles/text_styles.dart';
+import '../styles/colors.dart';
+import '../styles/text_styles.dart';
 
 class TabbedAppBar extends StatelessWidget implements PreferredSizeWidget {
   const TabbedAppBar({

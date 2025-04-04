@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
-import '../../../styles/colors.dart';
-import '../../../styles/text_styles.dart';
+import '../styles/colors.dart';
+import '../styles/text_styles.dart';
 
 class SimpleAppBar extends StatelessWidget implements PreferredSizeWidget {
   const SimpleAppBar({

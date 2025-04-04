@@ -1,9 +1,9 @@
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 
-import '../../../styles/colors.dart';
-import '../../../styles/spacing.dart';
-import '../../../styles/text_styles.dart';
+import '../styles/colors.dart';
+import '../styles/spacing.dart';
+import '../styles/text_styles.dart';
 import '../button/bar_button.dart';
 
 class BottomSheetContainer extends StatelessWidget {
@@ -37,17 +37,15 @@ class BottomSheetContainer extends StatelessWidget {
           mainAxisAlignment: MainAxisAlignment.start,
           crossAxisAlignment: CrossAxisAlignment.start,
           children: <Widget>[
-            if (header != null) ...<Widget>[
-              header,
-              Spacing.sb24,
-            ],
+            if (header != null) ...<Widget>[header, Spacing.sb24],
             if (title.isNotEmpty) ...<Widget>[
               Padding(
                 padding: titlePadding ?? EdgeInsets.zero,
                 child: Text(
                   title,
-                  style:
-                      TextStyles.display20w600.copyWith(color: SGColors.black),
+                  style: TextStyles.display20w600.copyWith(
+                    color: SGColors.black,
+                  ),
                 ),
               ),
               Spacing.sb8,
@@ -59,24 +57,22 @@ class BottomSheetContainer extends StatelessWidget {
               ),
               Spacing.sb20,
             ],
-            if (child != null) ...<Widget>[
-              child,
-              Spacing.sb16,
-            ],
+            if (child != null) ...<Widget>[child, Spacing.sb16],
             if (showConfirmButton)
               Padding(
                 padding: buttonPadding ?? EdgeInsets.zero,
-                child: isDisabled
-                    ? BarButton.disabled(title: buttonTitle)
-                    : isSecondary
+                child:
+                    isDisabled
+                        ? BarButton.disabled(title: buttonTitle)
+                        : isSecondary
                         ? BarButton.secondary(
-                            onPressed: onPressed ?? Get.back,
-                            title: buttonTitle,
-                          )
+                          onPressed: onPressed ?? Get.back,
+                          title: buttonTitle,
+                        )
                         : BarButton.primary(
-                            onPressed: onPressed ?? Get.back,
-                            title: buttonTitle,
-                          ),
+                          onPressed: onPressed ?? Get.back,
+                          title: buttonTitle,
+                        ),
               ),
           ],
         ),
@@ -104,10 +100,7 @@ class BottomSheetContainer extends StatelessWidget {
           mainAxisAlignment: MainAxisAlignment.start,
           crossAxisAlignment: CrossAxisAlignment.start,
           children: <Widget>[
-            if (header != null) ...<Widget>[
-              header,
-              Spacing.sb24,
-            ],
+            if (header != null) ...<Widget>[header, Spacing.sb24],
             if (title.isNotEmpty) ...<Widget>[
               Text(
                 title,
@@ -146,9 +139,9 @@ class BottomSheetContainer extends StatelessWidget {
               isDisabled
                   ? BarButton.disabled(title: buttonTitle)
                   : BarButton.primary(
-                      onPressed: onPressed ?? Get.back,
-                      title: buttonTitle,
-                    ),
+                    onPressed: onPressed ?? Get.back,
+                    title: buttonTitle,
+                  ),
           ],
         ),
       ),
@@ -180,15 +173,13 @@ class BottomSheetContainer extends StatelessWidget {
             mainAxisAlignment: MainAxisAlignment.start,
             crossAxisAlignment: CrossAxisAlignment.start,
             children: <Widget>[
-              if (header != null) ...<Widget>[
-                header,
-                Spacing.sb24,
-              ],
+              if (header != null) ...<Widget>[header, Spacing.sb24],
               if (title.isNotEmpty) ...<Widget>[
                 Text(
                   title,
-                  style:
-                      TextStyles.display20w600.copyWith(color: SGColors.black),
+                  style: TextStyles.display20w600.copyWith(
+                    color: SGColors.black,
+                  ),
                 ),
                 Spacing.sb8,
               ],
@@ -203,9 +194,10 @@ class BottomSheetContainer extends StatelessWidget {
                 Scrollbar(
                   thumbVisibility: true,
                   child: SizedBox(
-                    height: scrollableHeight != null
-                        ? scrollableHeight.value
-                        : title.isEmpty
+                    height:
+                        scrollableHeight != null
+                            ? scrollableHeight.value
+                            : title.isEmpty
                             ? 500
                             : 400,
                     child: ListView(
@@ -233,17 +225,18 @@ class BottomSheetContainer extends StatelessWidget {
                   ),
                   Spacing.sb16,
                   Expanded(
-                    child: selectedReasonIndex?.value == null
-                        ? BarButton.disabled(title: positiveTitle)
-                        : isDangerAction
+                    child:
+                        selectedReasonIndex?.value == null
+                            ? BarButton.disabled(title: positiveTitle)
+                            : isDangerAction
                             ? BarButton.danger(
-                                onPressed: positiveCallback ?? Get.back,
-                                title: positiveTitle,
-                              )
+                              onPressed: positiveCallback ?? Get.back,
+                              title: positiveTitle,
+                            )
                             : BarButton.primary(
-                                onPressed: positiveCallback ?? Get.back,
-                                title: positiveTitle,
-                              ),
+                              onPressed: positiveCallback ?? Get.back,
+                              title: positiveTitle,
+                            ),
                   ),
                 ],
               ),
@@ -272,10 +265,7 @@ class BottomSheetContainer extends StatelessWidget {
           mainAxisAlignment: MainAxisAlignment.start,
           crossAxisAlignment: CrossAxisAlignment.start,
           children: <Widget>[
-            if (header != null) ...<Widget>[
-              header,
-              Spacing.sb24,
-            ],
+            if (header != null) ...<Widget>[header, Spacing.sb24],
             if (title.isNotEmpty) ...<Widget>[
               Text(
                 title,
@@ -290,10 +280,7 @@ class BottomSheetContainer extends StatelessWidget {
               ),
               Spacing.sb20,
             ],
-            if (child != null) ...<Widget>[
-              child,
-              Spacing.sb16,
-            ],
+            if (child != null) ...<Widget>[child, Spacing.sb16],
             Row(
               children: <Widget>[
                 Expanded(
@@ -304,15 +291,16 @@ class BottomSheetContainer extends StatelessWidget {
                 ),
                 Spacing.sb16,
                 Expanded(
-                  child: isDangerAction
-                      ? BarButton.danger(
-                          onPressed: positiveCallback ?? Get.back,
-                          title: positiveTitle,
-                        )
-                      : BarButton.primary(
-                          onPressed: positiveCallback ?? Get.back,
-                          title: positiveTitle,
-                        ),
+                  child:
+                      isDangerAction
+                          ? BarButton.danger(
+                            onPressed: positiveCallback ?? Get.back,
+                            title: positiveTitle,
+                          )
+                          : BarButton.primary(
+                            onPressed: positiveCallback ?? Get.back,
+                            title: positiveTitle,
+                          ),
                 ),
               ],
             ),

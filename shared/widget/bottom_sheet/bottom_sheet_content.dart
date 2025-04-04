@@ -1,9 +1,9 @@
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
-import '../../../styles/colors.dart';
-import '../../../styles/spacing.dart';
-import '../../../styles/text_styles.dart';
+import '../styles/colors.dart';
+import '../styles/spacing.dart';
+import '../styles/text_styles.dart';
 import '../button/bar_button.dart';
 import '../text_field/general_text_field.dart';
 
@@ -23,57 +23,57 @@ class BottomSheetContent extends StatelessWidget {
             padding: EdgeInsets.only(top: (line ?? false) ? 18.0 : 0),
             child: ListView.separated(
               shrinkWrap: true,
-              itemBuilder: (final _, final int index) => GestureDetector(
-                onTap: () {
-                  modalState(() {
-                    selectedIndex?.value = index;
-                  });
-                },
-                child: Column(
-                  children: <Widget>[
-                    if (line ?? false) ...<Widget>{
-                      const Divider(
-                        color: SGColors.whiteShade1,
-                        height: 2,
-                        thickness: 2,
-                      ),
-                      Spacing.sb16,
+              itemBuilder:
+                  (final _, final int index) => GestureDetector(
+                    onTap: () {
+                      modalState(() {
+                        selectedIndex?.value = index;
+                      });
                     },
-                    Padding(
-                      padding: const EdgeInsets.symmetric(
-                        horizontal: Spacing.xlarge2,
-                      ),
-                      child: Row(
-                        children: <Widget>[
-                          // if ((line ?? false) == false) ...[
-                          //   SvgPicture.asset(
-                          //     selectedIndex?.value == index
-                          //         ? SVGAsset.check_on_ic
-                          //         : SVGAsset.check_off_ic,
-                          //     height: 32,
-                          //     width: 32,
-                          //   ),
-                          //   const SizedBox(width: Spacing.large),
-                          // ],
-                          Expanded(
-                            child: Text(
-                              options?.elementAt(index) ?? '',
-                              style: TextStyles.pro16w400.copyWith(
-                                color: selectedIndex?.value == index
-                                    ? selectedColor
-                                    : SGColors.blackShade1,
-                              ),
-                            ),
+                    child: Column(
+                      children: <Widget>[
+                        if (line ?? false) ...<Widget>{
+                          const Divider(
+                            color: SGColors.whiteShade1,
+                            height: 2,
+                            thickness: 2,
                           ),
-                        ],
-                      ),
+                          Spacing.sb16,
+                        },
+                        Padding(
+                          padding: const EdgeInsets.symmetric(
+                            horizontal: Spacing.xlarge2,
+                          ),
+                          child: Row(
+                            children: <Widget>[
+                              // if ((line ?? false) == false) ...[
+                              //   SvgPicture.asset(
+                              //     selectedIndex?.value == index
+                              //         ? SVGAsset.check_on_ic
+                              //         : SVGAsset.check_off_ic,
+                              //     height: 32,
+                              //     width: 32,
+                              //   ),
+                              //   const SizedBox(width: Spacing.large),
+                              // ],
+                              Expanded(
+                                child: Text(
+                                  options?.elementAt(index) ?? '',
+                                  style: TextStyles.pro16w400.copyWith(
+                                    color:
+                                        selectedIndex?.value == index
+                                            ? selectedColor
+                                            : SGColors.blackShade1,
+                                  ),
+                                ),
+                              ),
+                            ],
+                          ),
+                        ),
+                        if (line ?? false) ...<Widget>{Spacing.sb8},
+                      ],
                     ),
-                    if (line ?? false) ...<Widget>{
-                      Spacing.sb8,
-                    },
-                  ],
-                ),
-              ),
+                  ),
               separatorBuilder: (final _, final __) => Spacing.sb8,
               itemCount: options?.length ?? 0,
             ),
@@ -90,9 +90,10 @@ class BottomSheetContent extends StatelessWidget {
     final int minimunDurationInSeconds = 0,
   }) {
     final Duration minDuration = Duration(seconds: minimunDurationInSeconds);
-    final int extraSeconds = (time.value % (minuteInterval * 60)) == 0
-        ? 0
-        : (minuteInterval * 60) - (time.value % (minuteInterval * 60));
+    final int extraSeconds =
+        (time.value % (minuteInterval * 60)) == 0
+            ? 0
+            : (minuteInterval * 60) - (time.value % (minuteInterval * 60));
     Duration duration =
         Duration(seconds: time.value).inMinutes < minDuration.inMinutes
             ? minDuration
@@ -183,47 +184,47 @@ class BottomSheetContent extends StatelessWidget {
             shrinkWrap: true,
             physics: const NeverScrollableScrollPhysics(),
             padding: EdgeInsets.zero,
-            childrenDelegate: SliverChildListDelegate.fixed(
-              <Widget>[
-                TextFieldWidget.oneLine(
-                  keyboardType: TextInputType.emailAddress,
-                  padding: EdgeInsets.zero,
-                  suffixIcon: suffixIcon,
-                  onSuffixIconPressed: () => modalState(() {
-                    onSuffixIconPressed?.call();
-                  }),
-                  labelText: label,
-                  controller: textEditingController,
-                  onChanged: (final String value) => modalState(() {}),
-                  prefixIcon: prefixIcon,
-                ),
-                Spacing.sb28,
-                Row(
-                  children: <Widget>[
-                    if (showCancelButton) ...<Widget>[
-                      Expanded(
-                        child: BarButton.secondary(
-                          onPressed: onCancel ?? () => Get.back(),
-                          title: cancelButtonTitle,
-                        ),
-                      ),
-                      Spacing.sb8,
-                    ],
+            childrenDelegate: SliverChildListDelegate.fixed(<Widget>[
+              TextFieldWidget.oneLine(
+                keyboardType: TextInputType.emailAddress,
+                padding: EdgeInsets.zero,
+                suffixIcon: suffixIcon,
+                onSuffixIconPressed:
+                    () => modalState(() {
+                      onSuffixIconPressed?.call();
+                    }),
+                labelText: label,
+                controller: textEditingController,
+                onChanged: (final String value) => modalState(() {}),
+                prefixIcon: prefixIcon,
+              ),
+              Spacing.sb28,
+              Row(
+                children: <Widget>[
+                  if (showCancelButton) ...<Widget>[
                     Expanded(
-                      child: Visibility(
-                        visible: validation?.call() ?? true,
-                        replacement:
-                            BarButton.disabled(title: confirmButtonTitle),
-                        child: BarButton.primary(
-                          onPressed: onSubmit,
-                          title: confirmButtonTitle,
-                        ),
+                      child: BarButton.secondary(
+                        onPressed: onCancel ?? () => Get.back(),
+                        title: cancelButtonTitle,
                       ),
                     ),
+                    Spacing.sb8,
                   ],
-                ),
-              ],
-            ),
+                  Expanded(
+                    child: Visibility(
+                      visible: validation?.call() ?? true,
+                      replacement: BarButton.disabled(
+                        title: confirmButtonTitle,
+                      ),
+                      child: BarButton.primary(
+                        onPressed: onSubmit,
+                        title: confirmButtonTitle,
+                      ),
+                    ),
+                  ),
+                ],
+              ),
+            ]),
           );
         },
       ),
@@ -249,9 +250,10 @@ class BottomSheetContent extends StatelessWidget {
                 Expanded(
                   child: CupertinoPicker(
                     scrollController: FixedExtentScrollController(
-                      initialItem: number.value != null
-                          ? number.value! - (minNumber ?? 0)
-                          : 0,
+                      initialItem:
+                          number.value != null
+                              ? number.value! - (minNumber ?? 0)
+                              : 0,
                     ),
                     onSelectedItemChanged: (final int x) {
                       number.value = x + (minNumber ?? 0);
@@ -262,23 +264,26 @@ class BottomSheetContent extends StatelessWidget {
                       (maxNumber ?? 100) - (minNumber ?? 0),
                       (final int index) => Text(
                         '${index + (minNumber ?? 0)}',
-                        style: TextStyles.pro23w600
-                            .copyWith(color: SGColors.black),
+                        style: TextStyles.pro23w600.copyWith(
+                          color: SGColors.black,
+                        ),
                       ),
                     ),
                   ),
                 ),
                 Expanded(
                   child: CupertinoPicker(
-                    scrollController:
-                        FixedExtentScrollController(initialItem: 0),
+                    scrollController: FixedExtentScrollController(
+                      initialItem: 0,
+                    ),
                     onSelectedItemChanged: (final int x) {},
                     itemExtent: 30,
                     children: <Widget>[
                       Text(
                         unit,
-                        style: TextStyles.pro23w600
-                            .copyWith(color: SGColors.black),
+                        style: TextStyles.pro23w600.copyWith(
+                          color: SGColors.black,
+                        ),
                       ),
                     ],
                   ),
@@ -309,28 +314,35 @@ class BottomSheetContent extends StatelessWidget {
                 Expanded(
                   child: CupertinoPicker(
                     scrollController: FixedExtentScrollController(
-                      initialItem: (number.value != null &&
-                              number.value! < (maxNumber ?? 0) &&
-                              number.value! >= (minNumber ?? 0))
-                          ? (number.value!.floor() - (minNumber ?? 0).toInt())
-                          : 0,
+                      initialItem:
+                          (number.value != null &&
+                                  number.value! < (maxNumber ?? 0) &&
+                                  number.value! >= (minNumber ?? 0))
+                              ? (number.value!.floor() -
+                                  (minNumber ?? 0).toInt())
+                              : 0,
                     ),
                     onSelectedItemChanged: (final int x) {
                       number.value ??= 20;
-                      number.value = (x + (minNumber ?? 0)).toDouble() +
-                          (number.value! - number.value!.floor());
                       number.value =
-                          double.parse(number.value!.toStringAsFixed(1));
+                          (x + (minNumber ?? 0)).toDouble() +
+                          (number.value! - number.value!.floor());
+                      number.value = double.parse(
+                        number.value!.toStringAsFixed(1),
+                      );
                     },
                     itemExtent: 30,
                     children: <Widget>[
-                      for (int i = minNumber?.toInt() ?? 0;
-                          i < (maxNumber ?? 0);
-                          i += 1)
+                      for (
+                        int i = minNumber?.toInt() ?? 0;
+                        i < (maxNumber ?? 0);
+                        i += 1
+                      )
                         Text(
                           '$i',
-                          style: TextStyles.pro23w600
-                              .copyWith(color: SGColors.black),
+                          style: TextStyles.pro23w600.copyWith(
+                            color: SGColors.black,
+                          ),
                         ),
                     ],
                   ),
@@ -338,12 +350,13 @@ class BottomSheetContent extends StatelessWidget {
                 Expanded(
                   child: CupertinoPicker(
                     scrollController: FixedExtentScrollController(
-                      initialItem: (number.value != null &&
-                              number.value! < (maxNumber ?? 0) &&
-                              number.value! >= (minNumber ?? 0))
-                          ? ((number.value! - number.value!.floor()) * 10)
-                              .round()
-                          : 0,
+                      initialItem:
+                          (number.value != null &&
+                                  number.value! < (maxNumber ?? 0) &&
+                                  number.value! >= (minNumber ?? 0))
+                              ? ((number.value! - number.value!.floor()) * 10)
+                                  .round()
+                              : 0,
                     ),
                     onSelectedItemChanged: (final int x) {
                       number.value = number.value!.floor() + (x / 10);
@@ -353,23 +366,26 @@ class BottomSheetContent extends StatelessWidget {
                       10,
                       (final int index) => Text(
                         '.$index',
-                        style: TextStyles.pro23w600
-                            .copyWith(color: SGColors.black),
+                        style: TextStyles.pro23w600.copyWith(
+                          color: SGColors.black,
+                        ),
                       ),
                     ),
                   ),
                 ),
                 Expanded(
                   child: CupertinoPicker(
-                    scrollController:
-                        FixedExtentScrollController(initialItem: 0),
+                    scrollController: FixedExtentScrollController(
+                      initialItem: 0,
+                    ),
                     onSelectedItemChanged: (final int x) {},
                     itemExtent: 30,
                     children: <Widget>[
                       Text(
                         unit,
-                        style: TextStyles.pro23w600
-                            .copyWith(color: SGColors.black),
+                        style: TextStyles.pro23w600.copyWith(
+                          color: SGColors.black,
+                        ),
                       ),
                     ],
                   ),
@@ -385,8 +401,6 @@ class BottomSheetContent extends StatelessWidget {
   final Widget child;
   @override
   Widget build(final BuildContext context) {
-    return Center(
-      child: child,
-    );
+    return Center(child: child);
   }
 }

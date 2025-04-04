@@ -1,0 +1,6 @@
+// to add freezed model, run the commands below 
+flutter pub add freezed_annotation
+flutter pub add json_annotation
+flutter pub add --dev build_runner
+flutter pub add --dev json_serializable
+flutter pub add --dev freezed

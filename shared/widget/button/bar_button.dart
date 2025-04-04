@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
-import '../../../styles/colors.dart';
-import '../../../styles/spacing.dart';
-import '../../../styles/text_styles.dart';
+import '../styles/colors.dart';
+import '../styles/spacing.dart';
+import '../styles/text_styles.dart';
 
 class BarButton extends StatelessWidget {
   const BarButton({
@@ -25,13 +25,8 @@ class BarButton extends StatelessWidget {
     required final String title,
   }) {
     return condition
-        ? BarButton(
-            title: title,
-            onPressed: onPressed,
-          )
-        : BarButton.disabled(
-            title: title,
-          );
+        ? BarButton(title: title, onPressed: onPressed)
+        : BarButton.disabled(title: title);
   }
 
   factory BarButton.primary({
@@ -39,10 +34,7 @@ class BarButton extends StatelessWidget {
     required final String title,
     // bool disabled,
   }) {
-    return BarButton(
-      title: title,
-      onPressed: onPressed,
-    );
+    return BarButton(title: title, onPressed: onPressed);
   }
 
   factory BarButton.secondary({
@@ -162,13 +154,14 @@ class BarButton extends StatelessWidget {
     return Container(
       decoration: BoxDecoration(
         color: SGColors.whiteShade2,
-        gradient: disabled
-            ? null
-            : const LinearGradient(
-                colors: [SGColors.lightPink, SGColors.blueShade1],
-                begin: Alignment.topLeft,
-                end: Alignment.bottomRight,
-              ),
+        gradient:
+            disabled
+                ? null
+                : const LinearGradient(
+                  colors: [SGColors.lightPink, SGColors.blueShade1],
+                  begin: Alignment.topLeft,
+                  end: Alignment.bottomRight,
+                ),
         borderRadius: BorderRadius.circular(10),
       ),
       child: ElevatedButton(
@@ -200,9 +193,7 @@ class BarButton extends StatelessWidget {
             if (title.isNotEmpty)
               Text(
                 title,
-                style: TextStyles.pro14w600.copyWith(
-                  color: SGColors.black,
-                ),
+                style: TextStyles.pro14w600.copyWith(color: SGColors.black),
               ),
             if (isLoadingMode)
               const SizedBox(

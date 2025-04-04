@@ -1,16 +1,16 @@
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
-import '../../../styles/spacing.dart';
+import '../styles/spacing.dart';
 import 'bottom_sheet_container.dart';
 
 class BottomSheetUtil extends GetxService {
   static BottomSheetUtil get to => Get.find();
   RoundedRectangleBorder get defaultShape => const RoundedRectangleBorder(
-        borderRadius: BorderRadius.only(
-          topLeft: Radius.circular(Spacing.xlarge),
-          topRight: Radius.circular(Spacing.xlarge),
-        ),
-      );
+    borderRadius: BorderRadius.only(
+      topLeft: Radius.circular(Spacing.xlarge),
+      topRight: Radius.circular(Spacing.xlarge),
+    ),
+  );
 
   Future<void> showConfirm({
     required final String title,

@@ -1,21 +1,16 @@
 import 'package:flutter/material.dart';
-import '../../../styles/colors.dart';
-import '../../../styles/text_styles.dart';
+import '../styles/colors.dart';
+import '../styles/text_styles.dart';
 
 class CommonDivider extends StatelessWidget {
-  const CommonDivider({
-    super.key,
-  });
+  const CommonDivider({super.key});
 
   @override
   Widget build(final BuildContext context) {
     return Stack(
       alignment: Alignment.center,
       children: <Widget>[
-        const Divider(
-          color: SGColors.whiteShade2,
-          thickness: 1,
-        ),
+        const Divider(color: SGColors.whiteShade2, thickness: 1),
         Container(
           width: 36,
           height: 36,

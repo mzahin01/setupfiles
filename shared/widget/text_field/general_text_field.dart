@@ -1,8 +1,8 @@
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
-import '../../../styles/colors.dart';
-import '../../../styles/spacing.dart';
-import '../../../styles/text_styles.dart';
+import '../styles/colors.dart';
+import '../styles/spacing.dart';
+import '../styles/text_styles.dart';
 
 class TextFieldWidget extends StatelessWidget {
   const TextFieldWidget({
@@ -187,14 +187,16 @@ class TextFieldWidget extends StatelessWidget {
       children: <Widget>[
         if (title != null) ...<Widget>[
           Container(
-            padding: padding ??
+            padding:
+                padding ??
                 const EdgeInsets.only(
                   left: Spacing.xlarge,
                   right: Spacing.xlarge,
                 ),
             child: Text(
               title!,
-              style: titleTextStyle ??
+              style:
+                  titleTextStyle ??
                   TextStyles.pro12.copyWith(color: SGColors.blackShade1),
             ),
           ),
@@ -215,9 +217,10 @@ class TextFieldWidget extends StatelessWidget {
             maxLines: multiline ? null : lineCount ?? 1,
             maxLength: maxLength,
             controller: controller,
-            inputFormatters: inputFormatter != null
-                ? <TextInputFormatter>[inputFormatter!]
-                : null,
+            inputFormatters:
+                inputFormatter != null
+                    ? <TextInputFormatter>[inputFormatter!]
+                    : null,
             keyboardType: keyboardType,
             scrollPadding:
                 scrollPadding ?? const EdgeInsets.all(Spacing.xlarge),
@@ -245,21 +248,25 @@ class TextFieldWidget extends StatelessWidget {
               ),
               filled: backgroundColor != null ? true : false,
               fillColor: backgroundColor,
-              prefixIcon: prefixIcon != null
-                  ? Padding(
-                      padding: prefixPadding ??
-                          const EdgeInsets.symmetric(
-                            horizontal: Spacing.large,
-                          ),
-                      child: prefixIcon,
-                    )
-                  : null,
+              prefixIcon:
+                  prefixIcon != null
+                      ? Padding(
+                        padding:
+                            prefixPadding ??
+                            const EdgeInsets.symmetric(
+                              horizontal: Spacing.large,
+                            ),
+                        child: prefixIcon,
+                      )
+                      : null,
               labelText: labelText,
-              labelStyle: labelStyle ??
+              labelStyle:
+                  labelStyle ??
                   const TextStyle(color: SGColors.black, fontSize: 14),
               errorText: errorText,
-              errorStyle:
-                  TextStyles.pro12.copyWith(color: SGColors.secondaryRed),
+              errorStyle: TextStyles.pro12.copyWith(
+                color: SGColors.secondaryRed,
+              ),
               errorBorder: OutlineInputBorder(
                 borderRadius: BorderRadius.all(Radius.circular(borderRadious)),
                 borderSide: BorderSide(
@@ -267,13 +274,14 @@ class TextFieldWidget extends StatelessWidget {
                   color: borderColor ?? SGColors.blackShade3,
                 ),
               ),
-              suffixIcon: suffixIcon != null
-                  //controller.text.isNotEmpty && was here in the condition
-                  ? GestureDetector(
-                      onTap: onSuffixIconPressed,
-                      child: suffixIcon,
-                    )
-                  : null,
+              suffixIcon:
+                  suffixIcon != null
+                      //controller.text.isNotEmpty && was here in the condition
+                      ? GestureDetector(
+                        onTap: onSuffixIconPressed,
+                        child: suffixIcon,
+                      )
+                      : null,
               focusedBorder: OutlineInputBorder(
                 borderRadius: BorderRadius.all(Radius.circular(borderRadious)),
                 borderSide: BorderSide(
@@ -288,7 +296,8 @@ class TextFieldWidget extends StatelessWidget {
                   color: borderColor ?? SGColors.blackShade3,
                 ),
               ),
-              contentPadding: contentPadding ??
+              contentPadding:
+                  contentPadding ??
                   const EdgeInsets.only(
                     left: Spacing.large,
                     right: Spacing.large,
