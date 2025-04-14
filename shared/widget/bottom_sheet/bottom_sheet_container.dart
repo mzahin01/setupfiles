@@ -1,9 +1,9 @@
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 
-import '../styles/colors.dart';
-import '../styles/spacing.dart';
-import '../styles/text_styles.dart';
+import '../../styles/colors.dart';
+import '../../styles/spacing.dart';
+import '../../styles/text_styles.dart';
 import '../button/bar_button.dart';
 
 class BottomSheetContainer extends StatelessWidget {
@@ -61,18 +61,17 @@ class BottomSheetContainer extends StatelessWidget {
             if (showConfirmButton)
               Padding(
                 padding: buttonPadding ?? EdgeInsets.zero,
-                child:
-                    isDisabled
-                        ? BarButton.disabled(title: buttonTitle)
-                        : isSecondary
+                child: isDisabled
+                    ? BarButton.disabled(title: buttonTitle)
+                    : isSecondary
                         ? BarButton.secondary(
-                          onPressed: onPressed ?? Get.back,
-                          title: buttonTitle,
-                        )
+                            onPressed: onPressed ?? Get.back,
+                            title: buttonTitle,
+                          )
                         : BarButton.primary(
-                          onPressed: onPressed ?? Get.back,
-                          title: buttonTitle,
-                        ),
+                            onPressed: onPressed ?? Get.back,
+                            title: buttonTitle,
+                          ),
               ),
           ],
         ),
@@ -139,9 +138,9 @@ class BottomSheetContainer extends StatelessWidget {
               isDisabled
                   ? BarButton.disabled(title: buttonTitle)
                   : BarButton.primary(
-                    onPressed: onPressed ?? Get.back,
-                    title: buttonTitle,
-                  ),
+                      onPressed: onPressed ?? Get.back,
+                      title: buttonTitle,
+                    ),
           ],
         ),
       ),
@@ -194,10 +193,9 @@ class BottomSheetContainer extends StatelessWidget {
                 Scrollbar(
                   thumbVisibility: true,
                   child: SizedBox(
-                    height:
-                        scrollableHeight != null
-                            ? scrollableHeight.value
-                            : title.isEmpty
+                    height: scrollableHeight != null
+                        ? scrollableHeight.value
+                        : title.isEmpty
                             ? 500
                             : 400,
                     child: ListView(
@@ -225,18 +223,17 @@ class BottomSheetContainer extends StatelessWidget {
                   ),
                   Spacing.sb16,
                   Expanded(
-                    child:
-                        selectedReasonIndex?.value == null
-                            ? BarButton.disabled(title: positiveTitle)
-                            : isDangerAction
+                    child: selectedReasonIndex?.value == null
+                        ? BarButton.disabled(title: positiveTitle)
+                        : isDangerAction
                             ? BarButton.danger(
-                              onPressed: positiveCallback ?? Get.back,
-                              title: positiveTitle,
-                            )
+                                onPressed: positiveCallback ?? Get.back,
+                                title: positiveTitle,
+                              )
                             : BarButton.primary(
-                              onPressed: positiveCallback ?? Get.back,
-                              title: positiveTitle,
-                            ),
+                                onPressed: positiveCallback ?? Get.back,
+                                title: positiveTitle,
+                              ),
                   ),
                 ],
               ),
@@ -291,16 +288,15 @@ class BottomSheetContainer extends StatelessWidget {
                 ),
                 Spacing.sb16,
                 Expanded(
-                  child:
-                      isDangerAction
-                          ? BarButton.danger(
-                            onPressed: positiveCallback ?? Get.back,
-                            title: positiveTitle,
-                          )
-                          : BarButton.primary(
-                            onPressed: positiveCallback ?? Get.back,
-                            title: positiveTitle,
-                          ),
+                  child: isDangerAction
+                      ? BarButton.danger(
+                          onPressed: positiveCallback ?? Get.back,
+                          title: positiveTitle,
+                        )
+                      : BarButton.primary(
+                          onPressed: positiveCallback ?? Get.back,
+                          title: positiveTitle,
+                        ),
                 ),
               ],
             ),
@@ -340,7 +336,7 @@ class BottomSheetContainer extends StatelessWidget {
                 height: 5,
                 decoration: const BoxDecoration(
                   borderRadius: BorderRadius.all(Radius.circular(2)),
-                  color: SGColors.coolGrey,
+                  color: SGColors.disabledText,
                 ),
               ),
             ),

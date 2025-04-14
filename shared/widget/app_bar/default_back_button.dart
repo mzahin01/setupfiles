@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
-import '../styles/colors.dart';
+import '../../styles/colors.dart';
 
 class DefaultBackButton extends StatelessWidget {
   const DefaultBackButton({super.key});

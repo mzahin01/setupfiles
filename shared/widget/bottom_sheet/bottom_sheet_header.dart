@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_svg/flutter_svg.dart';
 import 'package:lottie/lottie.dart';
-import '../styles/colors.dart';
+import '../../styles/colors.dart';
 import '../container/circle_container.dart';
 
 class BottomSheetHeader extends StatelessWidget {
@@ -18,8 +18,8 @@ class BottomSheetHeader extends StatelessWidget {
     return BottomSheetHeader(
       child: CircleContainer(
         size: 64,
-        color: SGColors.secondaryRed.withOpacity(0.1),
-        child: Icon(icon, size: iconSize, color: SGColors.secondaryRed),
+        color: SGColors.red.withAlpha(21),
+        child: Icon(icon, size: iconSize, color: SGColors.red),
       ),
     );
   }

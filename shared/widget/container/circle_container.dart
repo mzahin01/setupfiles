@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
-import '../styles/colors.dart';
-import '../styles/spacing.dart';
+import '../../styles/colors.dart';
+import '../../styles/spacing.dart';
 
 class CircleContainer extends StatelessWidget {
   const CircleContainer({

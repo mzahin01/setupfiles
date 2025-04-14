@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
-import '../styles/colors.dart';
-import '../styles/text_styles.dart';
+import '../../styles/colors.dart';
+import '../../styles/text_styles.dart';
 
 class CommonDivider extends StatelessWidget {
   const CommonDivider({super.key});

@@ -1,8 +1,8 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_svg/svg.dart';
 import 'package:get/get.dart';
-import '../styles/spacing.dart';
-import '../styles/text_styles.dart';
+import '../../styles/spacing.dart';
+import '../../styles/text_styles.dart';
 
 class ResponsiveWidget<T> extends GetResponsiveView<T> {
   ResponsiveWidget({

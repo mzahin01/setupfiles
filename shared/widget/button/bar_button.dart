@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
-import '../styles/colors.dart';
-import '../styles/spacing.dart';
-import '../styles/text_styles.dart';
+import '../../styles/colors.dart';
+import '../../styles/spacing.dart';
+import '../../styles/text_styles.dart';
 
 class BarButton extends StatelessWidget {
   const BarButton({
@@ -45,7 +45,7 @@ class BarButton extends StatelessWidget {
       title: title,
       onPressed: onPressed,
       textColor: SGColors.blue,
-      buttonColor: SGColors.veryLightBlue,
+      buttonColor: SGColors.blue.withAlpha(21),
     );
   }
 
@@ -57,7 +57,7 @@ class BarButton extends StatelessWidget {
       title: title,
       icon: icon,
       onPressed: null,
-      buttonColor: SGColors.brightGray,
+      buttonColor: SGColors.disabledText,
       textColor: SGColors.white,
     );
   }
@@ -80,7 +80,7 @@ class BarButton extends StatelessWidget {
       title: title,
       onPressed: onPressed,
       textColor: SGColors.white,
-      buttonColor: SGColors.pinkyRed,
+      buttonColor: SGColors.red,
     );
   }
   factory BarButton.secondaryDanger({
@@ -90,8 +90,8 @@ class BarButton extends StatelessWidget {
     return BarButton(
       title: title,
       onPressed: onPressed,
-      textColor: SGColors.secondaryRed,
-      buttonColor: SGColors.secondaryRed.withOpacity(0.1),
+      textColor: SGColors.red,
+      buttonColor: SGColors.red.withAlpha(21),
     );
   }
 
@@ -154,14 +154,13 @@ class BarButton extends StatelessWidget {
     return Container(
       decoration: BoxDecoration(
         color: SGColors.whiteShade2,
-        gradient:
-            disabled
-                ? null
-                : const LinearGradient(
-                  colors: [SGColors.lightPink, SGColors.blueShade1],
-                  begin: Alignment.topLeft,
-                  end: Alignment.bottomRight,
-                ),
+        gradient: disabled
+            ? null
+            : const LinearGradient(
+                colors: [SGColors.red, SGColors.blue],
+                begin: Alignment.topLeft,
+                end: Alignment.bottomRight,
+              ),
         borderRadius: BorderRadius.circular(10),
       ),
       child: ElevatedButton(

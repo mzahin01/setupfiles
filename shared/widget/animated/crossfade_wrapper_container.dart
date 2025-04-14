@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-import '../styles/colors.dart';
+import '../../styles/colors.dart';
 import '../loader/loader.dart';
 
 class CrossfadeWrapperContainer extends StatelessWidget {

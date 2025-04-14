@@ -1,8 +1,8 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_svg/svg.dart';
-import '../styles/colors.dart';
-import '../styles/spacing.dart';
-import '../styles/text_styles.dart';
+import '../../styles/colors.dart';
+import '../../styles/spacing.dart';
+import '../../styles/text_styles.dart';
 
 class CustomChip extends StatelessWidget {
   const CustomChip({

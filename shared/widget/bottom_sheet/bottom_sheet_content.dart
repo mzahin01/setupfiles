@@ -1,9 +1,9 @@
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
-import '../styles/colors.dart';
-import '../styles/spacing.dart';
-import '../styles/text_styles.dart';
+import '../../styles/colors.dart';
+import '../../styles/spacing.dart';
+import '../../styles/text_styles.dart';
 import '../button/bar_button.dart';
 import '../text_field/general_text_field.dart';
 

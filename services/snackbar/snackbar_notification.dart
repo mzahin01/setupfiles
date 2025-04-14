@@ -30,7 +30,7 @@ class SnackbarNotification extends GetxService {
     Get.snackbar(
       title,
       message,
-      backgroundColor: SGColors.secondaryGreen.withAlpha(220),
+      backgroundColor: SGColors.green.withAlpha(220),
       duration: 4.seconds,
       icon: const Icon(Icons.error_outline_rounded, color: SGColors.white),
       shouldIconPulse: true,
