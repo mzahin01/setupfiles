@@ -1,4 +1,4 @@
-// ignore_for_file: prefer_typing_uninitialized_variables
+// ignore_for_file: prefer_typing_uninitialized_variables, strict_top_level_inference
 
 import 'package:flutter/material.dart';
 
@@ -16,19 +16,22 @@ class MaxText extends StatelessWidget {
   final int? maxLength;
   final StrutStyle? strutStyle;
 
-  const MaxText(this.title,
-      {super.key,
-      this.style,
-      this.maxLine,
-      this.type,
-      this.color,
-      this.textAlign,
-      this.strutStyle,
-      this.overflow,
-      this.maxLength,
-      this.softWrap})
-      : assert(style == null || type == null,
-            'please provide either style or type');
+  const MaxText(
+    this.title, {
+    super.key,
+    this.style,
+    this.maxLine,
+    this.type,
+    this.color,
+    this.textAlign,
+    this.strutStyle,
+    this.overflow,
+    this.maxLength,
+    this.softWrap,
+  }) : assert(
+         style == null || type == null,
+         'please provide either style or type',
+       );
 
   @override
   Widget build(BuildContext context) {
@@ -36,7 +39,7 @@ class MaxText extends StatelessWidget {
     if (maxLength != null) {
       newText =
           (title.length > maxLength ? title.substring(0, maxLength) : title) +
-              "...";
+          "...";
     }
     return Text(
       newText ?? title ?? "",

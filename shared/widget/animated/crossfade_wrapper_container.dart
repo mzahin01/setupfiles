@@ -21,15 +21,14 @@ class CrossfadeWrapperContainer extends StatelessWidget {
   final Alignment alignment;
   final bool useLoader;
   final double? loaderHeight;
-  Widget get loader =>
-      loaderHeight == null
-          ? Loader.circle()
-          : Container(
-            height: loaderHeight,
-            width: double.maxFinite,
-            color: SGColors.white,
-            child: Center(child: Loader.circle()),
-          );
+  Widget get loader => loaderHeight == null
+      ? Loader.circle()
+      : Container(
+          height: loaderHeight,
+          width: double.maxFinite,
+          color: SGColors.white,
+          child: Center(child: Loader.circle()),
+        );
   Widget get empty => const SizedBox.shrink();
 
   @override
@@ -37,12 +36,13 @@ class CrossfadeWrapperContainer extends StatelessWidget {
     return AnimatedCrossFade(
       firstChild: child,
       secondChild: empty,
-      crossFadeState:
-          visible ? CrossFadeState.showFirst : CrossFadeState.showSecond,
+      crossFadeState: visible
+          ? CrossFadeState.showFirst
+          : CrossFadeState.showSecond,
       duration: duration,
       alignment: alignment,
       layoutBuilder:
-          (final Widget first, final _, final Widget second, final __) =>
+          (final Widget first, final _, final Widget second, final _) =>
               visible ? first : replacement ?? (useLoader ? loader : empty),
     );
   }

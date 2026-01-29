@@ -1,21 +1,15 @@
 import 'dart:convert';
 
-import 'package:alice_lightweight/alice.dart';
-// ignore: depend_on_referenced_packages
 import 'package:http/http.dart' as http;
 
 import '../shared/util/log_message.dart';
 
 class ApiClientForRest {
   ApiClientForRest() {
-    // Initialize Alice with navigation key
-    alice = Alice();
-
     // Create HTTP client
     client = http.Client();
   }
   static const int timeoutRequest = 60;
-  late final Alice alice;
   late final http.Client client;
 
   final Map<String, String> _mainHeaders = {
@@ -53,8 +47,6 @@ class ApiClientForRest {
             ); // Replace 500 with your http code.
           },
         );
-
-    alice.onHttpResponse(response, body: response.body);
 
     logMessage(
       title: 'get response url: ${uri ?? Uri.parse(url)}',
@@ -119,6 +111,9 @@ class ApiClientForRest {
     Map<String, String>? headers,
     int? timeOut,
   }) async {
+    logMessage(title: 'delete url', message: url);
+    logMessage(title: 'delete token', message: token);
+
     http.Response response = await http
         .delete(
           Uri.parse(url),
@@ -136,7 +131,7 @@ class ApiClientForRest {
           },
         );
     logMessage(
-      title: 'post response url: ${Uri.parse(url)}',
+      title: 'delete response url: ${Uri.parse(url)}',
       message: response.body,
     );
     return response;
@@ -150,6 +145,10 @@ class ApiClientForRest {
     Map<String, String>? headers,
     int? timeOut,
   }) async {
+    logMessage(title: 'put url', message: url);
+    logMessage(title: 'put body', message: jsonEncode(body));
+    logMessage(title: 'put token', message: token);
+
     http.Response response = await http
         .put(
           Uri.parse(url),
@@ -168,7 +167,7 @@ class ApiClientForRest {
           },
         );
     logMessage(
-      title: 'post response url: ${Uri.parse(url)}',
+      title: 'put response url: ${Uri.parse(url)}',
       message: response.body,
     );
 

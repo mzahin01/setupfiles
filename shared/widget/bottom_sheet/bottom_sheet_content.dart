@@ -23,58 +23,56 @@ class BottomSheetContent extends StatelessWidget {
             padding: EdgeInsets.only(top: (line ?? false) ? 18.0 : 0),
             child: ListView.separated(
               shrinkWrap: true,
-              itemBuilder:
-                  (final _, final int index) => GestureDetector(
-                    onTap: () {
-                      modalState(() {
-                        selectedIndex?.value = index;
-                      });
+              itemBuilder: (final _, final int index) => GestureDetector(
+                onTap: () {
+                  modalState(() {
+                    selectedIndex?.value = index;
+                  });
+                },
+                child: Column(
+                  children: <Widget>[
+                    if (line ?? false) ...<Widget>{
+                      const Divider(
+                        color: SGColors.whiteShade1,
+                        height: 2,
+                        thickness: 2,
+                      ),
+                      Spacing.sb16,
                     },
-                    child: Column(
-                      children: <Widget>[
-                        if (line ?? false) ...<Widget>{
-                          const Divider(
-                            color: SGColors.whiteShade1,
-                            height: 2,
-                            thickness: 2,
-                          ),
-                          Spacing.sb16,
-                        },
-                        Padding(
-                          padding: const EdgeInsets.symmetric(
-                            horizontal: Spacing.xlarge2,
-                          ),
-                          child: Row(
-                            children: <Widget>[
-                              // if ((line ?? false) == false) ...[
-                              //   SvgPicture.asset(
-                              //     selectedIndex?.value == index
-                              //         ? SVGAsset.check_on_ic
-                              //         : SVGAsset.check_off_ic,
-                              //     height: 32,
-                              //     width: 32,
-                              //   ),
-                              //   const SizedBox(width: Spacing.large),
-                              // ],
-                              Expanded(
-                                child: Text(
-                                  options?.elementAt(index) ?? '',
-                                  style: TextStyles.pro16w400.copyWith(
-                                    color:
-                                        selectedIndex?.value == index
-                                            ? selectedColor
-                                            : SGColors.blackShade1,
-                                  ),
-                                ),
+                    Padding(
+                      padding: const EdgeInsets.symmetric(
+                        horizontal: Spacing.xlarge2,
+                      ),
+                      child: Row(
+                        children: <Widget>[
+                          // if ((line ?? false) == false) ...[
+                          //   SvgPicture.asset(
+                          //     selectedIndex?.value == index
+                          //         ? SVGAsset.check_on_ic
+                          //         : SVGAsset.check_off_ic,
+                          //     height: 32,
+                          //     width: 32,
+                          //   ),
+                          //   const SizedBox(width: Spacing.large),
+                          // ],
+                          Expanded(
+                            child: Text(
+                              options?.elementAt(index) ?? '',
+                              style: TextStyles.pro16w400.copyWith(
+                                color: selectedIndex?.value == index
+                                    ? selectedColor
+                                    : SGColors.blackShade1,
                               ),
-                            ],
+                            ),
                           ),
-                        ),
-                        if (line ?? false) ...<Widget>{Spacing.sb8},
-                      ],
+                        ],
+                      ),
                     ),
-                  ),
-              separatorBuilder: (final _, final __) => Spacing.sb8,
+                    if (line ?? false) ...<Widget>{Spacing.sb8},
+                  ],
+                ),
+              ),
+              separatorBuilder: (final _, final _) => Spacing.sb8,
               itemCount: options?.length ?? 0,
             ),
           );
@@ -90,14 +88,13 @@ class BottomSheetContent extends StatelessWidget {
     final int minimunDurationInSeconds = 0,
   }) {
     final Duration minDuration = Duration(seconds: minimunDurationInSeconds);
-    final int extraSeconds =
-        (time.value % (minuteInterval * 60)) == 0
-            ? 0
-            : (minuteInterval * 60) - (time.value % (minuteInterval * 60));
+    final int extraSeconds = (time.value % (minuteInterval * 60)) == 0
+        ? 0
+        : (minuteInterval * 60) - (time.value % (minuteInterval * 60));
     Duration duration =
         Duration(seconds: time.value).inMinutes < minDuration.inMinutes
-            ? minDuration
-            : Duration(seconds: time.value + extraSeconds);
+        ? minDuration
+        : Duration(seconds: time.value + extraSeconds);
     // Duration(seconds: time.value).inMinutes % minuteInterval != 0
     //     ? minDuration
     //     : Duration(seconds: time.value);
@@ -189,10 +186,9 @@ class BottomSheetContent extends StatelessWidget {
                 keyboardType: TextInputType.emailAddress,
                 padding: EdgeInsets.zero,
                 suffixIcon: suffixIcon,
-                onSuffixIconPressed:
-                    () => modalState(() {
-                      onSuffixIconPressed?.call();
-                    }),
+                onSuffixIconPressed: () => modalState(() {
+                  onSuffixIconPressed?.call();
+                }),
                 labelText: label,
                 controller: textEditingController,
                 onChanged: (final String value) => modalState(() {}),
@@ -250,10 +246,9 @@ class BottomSheetContent extends StatelessWidget {
                 Expanded(
                   child: CupertinoPicker(
                     scrollController: FixedExtentScrollController(
-                      initialItem:
-                          number.value != null
-                              ? number.value! - (minNumber ?? 0)
-                              : 0,
+                      initialItem: number.value != null
+                          ? number.value! - (minNumber ?? 0)
+                          : 0,
                     ),
                     onSelectedItemChanged: (final int x) {
                       number.value = x + (minNumber ?? 0);
@@ -316,11 +311,10 @@ class BottomSheetContent extends StatelessWidget {
                     scrollController: FixedExtentScrollController(
                       initialItem:
                           (number.value != null &&
-                                  number.value! < (maxNumber ?? 0) &&
-                                  number.value! >= (minNumber ?? 0))
-                              ? (number.value!.floor() -
-                                  (minNumber ?? 0).toInt())
-                              : 0,
+                              number.value! < (maxNumber ?? 0) &&
+                              number.value! >= (minNumber ?? 0))
+                          ? (number.value!.floor() - (minNumber ?? 0).toInt())
+                          : 0,
                     ),
                     onSelectedItemChanged: (final int x) {
                       number.value ??= 20;
@@ -352,11 +346,11 @@ class BottomSheetContent extends StatelessWidget {
                     scrollController: FixedExtentScrollController(
                       initialItem:
                           (number.value != null &&
-                                  number.value! < (maxNumber ?? 0) &&
-                                  number.value! >= (minNumber ?? 0))
-                              ? ((number.value! - number.value!.floor()) * 10)
-                                  .round()
-                              : 0,
+                              number.value! < (maxNumber ?? 0) &&
+                              number.value! >= (minNumber ?? 0))
+                          ? ((number.value! - number.value!.floor()) * 10)
+                                .round()
+                          : 0,
                     ),
                     onSelectedItemChanged: (final int x) {
                       number.value = number.value!.floor() + (x / 10);

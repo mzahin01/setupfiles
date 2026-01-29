@@ -1,10 +1,10 @@
 import 'dart:io';
 
 // ignore: depend_on_referenced_packages
+import 'package:campaigner/app/services/model/base_response.dart';
 import 'package:dio/dio.dart';
 import '../../../app/shared/extension/string.dart';
 import '../../../app/services/api/api_client.dart';
-import '../../shared/model/base_response/base_response.dart';
 
 abstract class RestApi {
   final ApiClient _apiClient = ApiClient.to;
@@ -22,12 +22,11 @@ abstract class RestApi {
         path,
         data: data,
         queryParameters: queryParameters,
-        options:
-            noCache
-                ? _apiClient.noCacheOption
-                : forceRefresh
-                ? _apiClient.refreshCacheOption
-                : _apiClient.forceCacheOption,
+        options: noCache
+            ? _apiClient.noCacheOption
+            : forceRefresh
+            ? _apiClient.refreshCacheOption
+            : _apiClient.forceCacheOption,
       );
 
       final BaseResponse baseResponse = BaseResponse.fromJson(response.data);
@@ -58,12 +57,11 @@ abstract class RestApi {
         path,
         data: data,
         queryParameters: queryParameters,
-        options:
-            noCache
-                ? _apiClient.noCacheOption
-                : forceRefresh
-                ? _apiClient.refreshCacheOption
-                : _apiClient.forceCacheOption,
+        options: noCache
+            ? _apiClient.noCacheOption
+            : forceRefresh
+            ? _apiClient.refreshCacheOption
+            : _apiClient.forceCacheOption,
       );
 
       final BaseResponse baseResponse = BaseResponse.fromJson(response.data);
@@ -94,12 +92,11 @@ abstract class RestApi {
         path,
         data: data,
         queryParameters: queryParameters,
-        options:
-            noCache
-                ? _apiClient.noCacheOption
-                : forceRefresh
-                ? _apiClient.refreshCacheOption
-                : _apiClient.forceCacheOption,
+        options: noCache
+            ? _apiClient.noCacheOption
+            : forceRefresh
+            ? _apiClient.refreshCacheOption
+            : _apiClient.forceCacheOption,
       );
 
       final BaseResponse baseResponse = BaseResponse.fromJson(response.data);
@@ -146,12 +143,11 @@ abstract class RestApi {
         path,
         data: formData,
         queryParameters: queryParameters,
-        options:
-            noCache
-                ? _apiClient.noCacheOption
-                : forceRefresh
-                ? _apiClient.refreshCacheOption
-                : _apiClient.forceCacheOption,
+        options: noCache
+            ? _apiClient.noCacheOption
+            : forceRefresh
+            ? _apiClient.refreshCacheOption
+            : _apiClient.forceCacheOption,
       );
 
       // Parse the response
@@ -183,12 +179,11 @@ abstract class RestApi {
         path,
         data: data,
         queryParameters: queryParameters,
-        options:
-            noCache
-                ? _apiClient.noCacheOption
-                : forceRefresh
-                ? _apiClient.refreshCacheOption
-                : _apiClient.forceCacheOption,
+        options: noCache
+            ? _apiClient.noCacheOption
+            : forceRefresh
+            ? _apiClient.refreshCacheOption
+            : _apiClient.forceCacheOption,
       );
 
       final BaseResponse baseResponse = BaseResponse.fromJson(response.data);
@@ -214,12 +209,11 @@ abstract class RestApi {
         path,
         data: data,
         queryParameters: queryParameters,
-        options:
-            noCache
-                ? _apiClient.noCacheOption
-                : forceRefresh
-                ? _apiClient.refreshCacheOption
-                : _apiClient.forceCacheOption,
+        options: noCache
+            ? _apiClient.noCacheOption
+            : forceRefresh
+            ? _apiClient.refreshCacheOption
+            : _apiClient.forceCacheOption,
       );
 
       final BaseResponse baseResponse = BaseResponse.fromJson(response.data);
